@@ -1,4 +1,4 @@
-# Amit Chejara's Portfolio
+# Ketan Shukla's Portfolio
 
 A modern, responsive portfolio website showcasing my professional journey, technical articles, and open-source contributions.
 
