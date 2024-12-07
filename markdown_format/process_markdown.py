@@ -46,11 +46,19 @@ def format_markdown(input_file, output_file=None):
 
 def update_index_html(article_filename, article_title):
     """Update index.html with the new article."""
+    # Get the base name without date prefix
     base_name = os.path.splitext(os.path.basename(article_filename))[0]
+    if base_name.startswith(datetime.now().strftime('%Y-%m-%d-')):
+        base_name = base_name[11:]  # Remove the date prefix
     image_name = f"{base_name}.jpg"
     
     with open('index.html', 'r', encoding='utf-8') as f:
         content = f.read()
+    
+    # Check if article already exists
+    if f'post=assets/blog_posts/{article_filename}' in content:
+        print(f"Article {article_filename} already exists in index.html")
+        return
         
     # Create new article card HTML
     new_article = f'''
@@ -183,7 +191,9 @@ def detect_language(code):
 
 def process_and_move_markdown(markdown_file):
     """
-    Process a markdown file from markdown_format/original_articles and move it to assets/blog_posts.
+    Process a markdown file from markdown_format/original_articles and:
+    1. Create processed version in assets/blog_posts
+    2. Move original file to markdown_format/processed_articles
     Returns the path to the processed file in the blog_posts folder.
     """
     # Get the absolute paths
@@ -211,6 +221,12 @@ def process_and_move_markdown(markdown_file):
     # Update index.html with the new article
     os.chdir(os.path.dirname(script_dir))  # Change to project root directory
     update_index_html(output_filename, title)
+    
+    # Move original file to processed_articles folder
+    processed_dir = os.path.join(script_dir, 'processed_articles')
+    os.makedirs(processed_dir, exist_ok=True)
+    processed_path = os.path.join(processed_dir, markdown_file)
+    shutil.move(input_path, processed_path)
     
     return output_path
 
