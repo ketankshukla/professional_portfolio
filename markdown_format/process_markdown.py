@@ -25,9 +25,9 @@ def format_markdown(input_file, output_file=None):
     
     # Process headings and add emojis
     for heading in soup.find_all(['h1', 'h2', 'h3']):
-        if not any(char in heading.text for char in ['🔗', '📝', '💡', '🚀', '📊', '🎯', '💻']):
+        if not any(char in heading.text for char in ['🔗', '📝', '💡', '🚀', '📊', '🎯', '💻', '🌟', '🎨', '📖', '🏗️', '🗺️']):
             emoji = get_emoji_for_heading(heading.text.lower())
-            heading.string = f"{emoji} {heading.text}"
+            heading.string = f"{emoji} {heading.text.strip()}"
 
     # Convert back to markdown-style content
     content = html_to_markdown(soup)
@@ -43,6 +43,37 @@ def format_markdown(input_file, output_file=None):
         f.write(content)
 
     return output_file
+
+def update_index_html(article_filename, article_title):
+    """Update index.html with the new article."""
+    base_name = os.path.splitext(os.path.basename(article_filename))[0]
+    image_name = f"{base_name}.jpg"
+    
+    with open('index.html', 'r', encoding='utf-8') as f:
+        content = f.read()
+        
+    # Create new article card HTML
+    new_article = f'''
+                <a href="blog-post.html?post=assets/blog_posts/{article_filename}" 
+                   class="article-card" 
+                   data-date="{datetime.now().strftime('%Y-%m-%d')}">
+                    <div class="article-image">
+                        <img src="assets/images/articles/{image_name}" alt="{article_title}">
+                    </div>
+                    <div class="article-content">
+                        <h3>{article_title}</h3>
+                        <p class="article-date">{datetime.now().strftime('%B %d, %Y')}</p>
+                    </div>
+                </a>'''
+    
+    # Find the articles-grid div and insert the new article at the beginning
+    grid_start = content.find('<div class="articles-grid">')
+    if grid_start != -1:
+        insert_pos = content.find('>', grid_start) + 1
+        content = content[:insert_pos] + new_article + content[insert_pos:]
+        
+        with open('index.html', 'w', encoding='utf-8') as f:
+            f.write(content)
 
 def html_to_markdown(soup):
     """Convert HTML back to markdown-style content."""
@@ -170,6 +201,16 @@ def process_and_move_markdown(markdown_file):
     
     # Format the markdown file
     format_markdown(input_path, output_path)
+    
+    # Extract title from the markdown file
+    with open(output_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+        title_match = re.search(r'^#\s*(.*?)$', content, re.MULTILINE)
+        title = title_match.group(1) if title_match else os.path.splitext(markdown_file)[0]
+    
+    # Update index.html with the new article
+    os.chdir(os.path.dirname(script_dir))  # Change to project root directory
+    update_index_html(output_filename, title)
     
     return output_path
 

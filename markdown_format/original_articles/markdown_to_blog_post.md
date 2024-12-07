@@ -1,10 +1,10 @@
-# Markdown to Beautiful Blog: A Complete Guide 🎨
+# 🗺️ Markdown to Beautiful Blog: A Complete Guide 🎨
 
-## Introduction 🌟
+## 🌟 Introduction 🌟
 
 This guide will walk you through transforming your markdown articles into beautifully rendered blog posts with interactive diagrams, syntax-highlighted code, and professional styling. Our markdown processing system handles everything from emoji additions to Mermaid diagram rendering.
 
-## System Overview 🏗️
+## 📖 System Overview 🏗️
 
 ```mermaid
 graph TB
@@ -30,7 +30,7 @@ graph TB
     style D fill:#DDA0DD,stroke:#333
 ```
 
-## Installation & Setup ⚙️
+## ⚙️ Installation & Setup ⚙️
 
 1. First, ensure you have Python installed on your system
 2. Navigate to the markdown_format directory
@@ -41,19 +41,19 @@ cd markdown_format
 pip install -r requirements.txt
 ```
 
-## Usage Guide 📚
+## 🛠️ Usage Guide 📚
 
-### Basic Usage
+### 🛠️ Basic Usage
 
 ```python
-# Process a markdown file
+# 📌 Process a markdown file
 python process_markdown.py my_article.md --title "My Amazing Article"
 
-# Add to blog
+# 📌 Add to blog
 python add_blog_post.py assets/blog_posts/my_article.md --image assets/my_image.jpg
 ```
 
-### Command Line Arguments 🎮
+### 📌 Command Line Arguments 🎮
 
 ```mermaid
 mindmap
@@ -72,9 +72,9 @@ mindmap
                 Cover image
 ```
 
-## Markdown Features ✨
+## ✨ Markdown Features ✨
 
-### Code Blocks with Syntax Highlighting
+### 📌 Code Blocks with Syntax Highlighting
 
 ```python
 def example_function():
@@ -84,7 +84,7 @@ def example_function():
     return message
 ```
 
-### Interactive Diagrams
+### 📌 Interactive Diagrams
 
 Create beautiful diagrams using Mermaid syntax:
 
@@ -133,7 +133,7 @@ The processor automatically adds relevant emojis to your headings:
 
 ## Advanced Features 🚀
 
-### Custom Styling
+### 📌 Custom Styling
 
 Your blog posts will automatically receive beautiful styling:
 
@@ -147,7 +147,7 @@ Your blog posts will automatically receive beautiful styling:
 }
 ```
 
-### Mermaid Diagram Types
+### 📌 Mermaid Diagram Types
 
 1. **Flowcharts**
    ```mermaid
@@ -168,7 +168,7 @@ Your blog posts will automatically receive beautiful styling:
                Detail C
    ```
 
-## Troubleshooting 🔧
+### 📌 Troubleshooting 🔧
 
 Common issues and solutions:
 
@@ -197,7 +197,7 @@ Common issues and solutions:
    python add_blog_post.py assets/blog_posts/my_new_post.md
    ```
 
-## Conclusion 🎬
+## 🎬 Conclusion 🎬
 
 This markdown processing system transforms your content into professionally styled blog posts with minimal effort. Focus on writing great content, and let the system handle the presentation!
 
