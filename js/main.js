@@ -298,6 +298,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Logo click handler
+    document.querySelector('.nav-brand a').addEventListener('click', function(e) {
+        // If we're on the main page (index.html)
+        if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+            e.preventDefault();
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        }
+        // If we're on an article page, the default href="/" behavior will work
+    });
+
     // Initialize all managers
     NavigationManager.init();
     ArticlesManager.init();
