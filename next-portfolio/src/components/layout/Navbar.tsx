@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import MobileMenu from './MobileMenu';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,25 +75,43 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden">
-            {/* Mobile menu button - we'll implement this later */}
-            <button className="text-gray-900 hover:text-blue-600">
+            <button 
+              className="text-gray-900 hover:text-blue-600 p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
               <svg
                 className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
               </svg>
             </button>
           </div>
         </div>
       </div>
+      
+      <MobileMenu 
+        isOpen={isMobileMenuOpen}
+        setIsOpen={setIsMobileMenuOpen}
+        navLinks={navLinks}
+      />
     </nav>
   );
 };
