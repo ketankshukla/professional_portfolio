@@ -19,10 +19,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#blog', label: 'Blog' },
-    { href: '#opensource', label: 'Open Source' },
+    { href: '/', label: 'Home' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/opensource', label: 'Open Source' },
   ];
 
   const nameArray = 'KETAN SHUKLA'.split('');
