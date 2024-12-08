@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="assets/featured_projects/css/projects.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         .brand-name {
@@ -78,10 +79,26 @@
 
     <main>
         <section id="projects" class="section">
-            <h2>Featured Projects</h2>
-            <div class="featured-grid">
-                <!-- Projects coming soon message -->
-                <p class="coming-soon">Exciting projects coming soon! Stay tuned...</p>
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="sort-container">
+                    <select id="sort-projects" class="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+            </div>
+            <div class="project-grid" id="project-grid">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+            <div class="pagination-container">
+                <div class="projects-info">
+                    Showing <span id="showing-projects-count">0</span> of <span id="total-projects-count">0</span> projects
+                </div>
+                <button id="load-more-projects" class="load-more-btn" style="display: none;">
+                    Load More
+                </button>
             </div>
         </section>
 
@@ -321,5 +338,6 @@
 
     <script defer src="js/main.js"></script>
     <script defer src="js/mobile.js"></script>
+    <script defer src="assets/featured_projects/js/projects.js"></script>
 </body>
 </html>

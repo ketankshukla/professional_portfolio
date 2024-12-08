@@ -526,11 +526,19 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    transition: opacity 0.3s ease;
+    margin-top: 2rem;
 }
 
 .articles-grid.loading {
     opacity: 0.5;
+}
+
+/* Article Grid Styles */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .article-card {
@@ -639,6 +647,77 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+/* Section Header Styles */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.sort-container {
+    position: relative;
+}
+
+.sort-select {
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 0.8rem;
+}
+
+.sort-select:hover {
+    border-color: var(--primary-color);
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 65, 116, 0.1);
+}
+
+/* Pagination Styles */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem 0;
+}
+
+.load-more-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.articles-info, .projects-info {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
 /* Open Source Section Styles */
 .opensource-grid {
     display: grid;
@@ -733,28 +812,6 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.05);
 }
 
-.project-badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: rgba(0, 65, 116, 0.9);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-}
-
-.opensource-card:hover .project-badge {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    transform: scale(1.05);
-}
-
 .opensource-content {
     padding: 2rem;
     flex-grow: 1;
@@ -800,7 +857,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
 }
 
-/* Experience Timeline Styles */
+/* Timeline Container Styles */
 .timeline-container {
     position: relative;
     padding: var(--spacing-md) var(--spacing-lg);
@@ -1315,6 +1372,30 @@ footer {
         width: 60px;
         height: 60px;
     }
+
+    .experience-details {
+        text-align: center;
+    }
+
+    .company-info,
+    .duration,
+    .location {
+        justify-content: center;
+    }
+
+    /* Disable desktop hover animations on mobile */
+    .experience-card:hover,
+    .article-card:hover,
+    .opensource-card:hover {
+        transform: none;
+        border-color: rgba(0, 65, 116, 0.1);
+        box-shadow: none;
+    }
+
+    /* Animation class for mobile scroll animations */
+    .card-animate {
+        transition: all 0.3s ease !important;
+    }
 }
 
 /* Tablet Responsiveness */
@@ -1335,6 +1416,15 @@ footer {
 
     .tagline {
         font-size: 1.2rem;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    .featured-grid,
+    .articles-grid,
+    .opensource-grid {
+        grid-template-columns: 1fr; /* Single column for very small devices */
     }
 }
 
@@ -1445,6 +1535,11 @@ footer {
     }
 
     .experience-details {
+        text-align: center;
+    }
+
+    .company-info {
+        flex-direction: column;
         text-align: center;
     }
 

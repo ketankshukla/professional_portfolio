@@ -1,0 +1,46 @@
+{
+    "projects": [
+        {
+            "title": "Algorithm Visualizer",
+            "description": "Interactive visualization of common algorithms",
+            "image": "assets/images/articles/o_notation.jpg",
+            "github_url": "https://github.com/ketankshukla/algorithm-visualizer",
+            "tags": ["Python", "Django", "JavaScript"]
+        },
+        {
+            "title": "Data Structure Explorer",
+            "description": "Interactive learning platform for data structures",
+            "image": "assets/images/articles/trees.jpg",
+            "github_url": "https://github.com/ketankshukla/data-structure-explorer",
+            "tags": ["Python", "React", "Django"]
+        },
+        {
+            "title": "Django Blog Platform",
+            "description": "Full-featured blogging platform",
+            "image": "assets/images/articles/dictionary_comprehension.png",
+            "github_url": "https://github.com/ketankshukla/django-blog-platform",
+            "tags": ["Django", "PostgreSQL", "AWS"]
+        },
+        {
+            "title": "Portfolio Generator",
+            "description": "Dynamic portfolio website generator",
+            "image": "assets/images/articles/doubly_linked_lists.png",
+            "github_url": "https://github.com/ketankshukla/portfolio-generator",
+            "tags": ["Python", "JavaScript", "HTML/CSS"]
+        },
+        {
+            "title": "Markdown Blog Engine",
+            "description": "Convert markdown to beautiful blog posts",
+            "image": "assets/images/articles/markdown_to_blog_post.png",
+            "github_url": "https://github.com/ketankshukla/markdown-blog-engine",
+            "tags": ["Python", "Django", "Markdown"]
+        },
+        {
+            "title": "Python Data Structures",
+            "description": "Implementation of advanced data structures",
+            "image": "assets/images/articles/linked_lists.png",
+            "github_url": "https://github.com/ketankshukla/python-data-structures",
+            "tags": ["Python", "Algorithms", "Data Structures"]
+        }
+    ]
+}
