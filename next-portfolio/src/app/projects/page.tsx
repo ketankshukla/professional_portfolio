@@ -19,6 +19,7 @@ const projects: Project[] = [
     image: '/images/projects/ml-pipeline.jpg',
     tags: ['Python', 'TensorFlow', 'Docker', 'Kubernetes'],
     githubUrl: 'https://github.com/ketankshukla/ml-pipeline',
+    liveUrl: 'https://ml-pipeline-demo.ketanshukla.com',
     featured: true,
   },
   // Add more projects as needed
