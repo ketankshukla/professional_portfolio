@@ -1,7 +1,13 @@
+import { Metadata } from 'next';
 import BlogCard from '@/components/blog/BlogCard';
 import { getAllPosts } from '@/utils/blog';
 
-export default function BlogPage() {
+export const metadata: Metadata = {
+  title: 'Blog | Ketan Shukla',
+  description: 'Thoughts on software development, machine learning, and technology.',
+};
+
+export default async function BlogPage() {
   const posts = getAllPosts();
 
   return (

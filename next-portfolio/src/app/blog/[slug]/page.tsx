@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { getPostBySlug, getAllPosts } from '@/utils/blog';
 import { notFound } from 'next/navigation';
 
@@ -9,6 +10,21 @@ interface BlogPostPageProps {
   };
 }
 
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  try {
+    const post = getPostBySlug(params.slug);
+    return {
+      title: `${post.title} | Ketan Shukla's Blog`,
+      description: post.excerpt,
+    };
+  } catch (error) {
+    return {
+      title: 'Blog Post Not Found | Ketan Shukla',
+      description: 'The requested blog post could not be found.',
+    };
+  }
+}
+
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({
@@ -16,7 +32,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   try {
     const post = getPostBySlug(params.slug);
 
