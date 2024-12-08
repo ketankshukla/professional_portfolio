@@ -5,6 +5,6 @@ export interface Project {
   image: string;
   tags: string[];
   githubUrl: string;
-  liveUrl: string;
+  liveUrl?: string;
   featured: boolean;
 }

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Project } from '@/data/projects';
+import { Project } from '@/types/project';
 import { FaGithub } from 'react-icons/fa';
 import { HiExternalLink } from 'react-icons/hi';
 
@@ -33,7 +33,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
         <div className="flex gap-4">
           <a
-            href={project.github}
+            href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
@@ -41,9 +41,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             <FaGithub className="text-xl" />
             <span>GitHub</span>
           </a>
-          {project.demo && (
+          {project.liveUrl && (
             <a
-              href={project.demo}
+              href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
