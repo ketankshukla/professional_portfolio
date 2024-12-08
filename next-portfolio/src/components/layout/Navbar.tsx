@@ -40,14 +40,23 @@ const Navbar = () => {
     const element = document.getElementById(sectionId);
     
     if (element) {
-      const navHeight = 64; // height of navbar
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+      // For home section, scroll to top
+      if (sectionId === 'home') {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      } else {
+        // For other sections, account for navbar height
+        const navHeight = 64; // height of navbar
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -64,7 +73,9 @@ const Navbar = () => {
             <a 
               href="/#home"
               onClick={(e) => handleNavClick(e, '/#home')}
-              className="flex items-center gap-2 text-gray-900 no-underline"
+              className={`flex items-center gap-2 transition-all duration-300 ${
+                isScrolled ? 'opacity-100' : 'opacity-0'
+              }`}
             >
               <Image
                 src="/images/profile/logo.png"
@@ -77,7 +88,9 @@ const Navbar = () => {
                 {nameArray.map((letter, index) => (
                   <span
                     key={index}
-                    className="text-lg font-semibold hover:text-blue-600 transition-colors duration-300"
+                    className={`text-lg font-semibold transition-colors duration-300 ${
+                      isScrolled ? 'text-gray-900 hover:text-blue-600' : 'text-white'
+                    }`}
                     style={{ 
                       animationDelay: `${index * 0.1}s`,
                       display: letter === ' ' ? 'inline-block' : 'inline-block',
@@ -98,7 +111,9 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-gray-900 hover:text-blue-600 px-3 py-2 transition-colors duration-300"
+                className={`px-3 py-2 transition-colors duration-300 ${
+                  isScrolled ? 'text-gray-900 hover:text-blue-600' : 'text-white hover:text-blue-200'
+                }`}
               >
                 {link.label}
               </a>
@@ -108,7 +123,9 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="sm:hidden">
             <button
-              className="text-gray-900 hover:text-blue-600 p-2"
+              className={`p-2 transition-colors duration-300 ${
+                isScrolled ? 'text-gray-900 hover:text-blue-600' : 'text-white hover:text-blue-200'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -141,14 +158,18 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="sm:hidden bg-white shadow-lg">
+        <div className={`sm:hidden shadow-lg ${
+          isScrolled ? 'bg-white' : 'bg-gray-900'
+        }`}>
           <div className="pt-2 pb-3 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="block text-gray-900 hover:text-blue-600 px-3 py-2 transition-colors duration-300"
+                className={`block px-3 py-2 transition-colors duration-300 ${
+                  isScrolled ? 'text-gray-900 hover:text-blue-600' : 'text-white hover:text-blue-200'
+                }`}
               >
                 {link.label}
               </a>
