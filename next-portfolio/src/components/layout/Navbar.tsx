@@ -12,18 +12,21 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > window.innerHeight - 100);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Don't render the navbar if we're at the top
+  if (!isScrolled && pathname === '/') return null;
 
   const navLinks = [
     { href: '/#home', label: 'Home' },
     { href: '/#projects', label: 'Projects' },
     { href: '/#blog', label: 'Blog' },
-    { href: '/#opensource', label: 'Open Source' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

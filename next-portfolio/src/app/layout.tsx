@@ -1,8 +1,20 @@
 import type { Metadata } from 'next'
 import './globals.css';
 import '@/styles/prism-theme.css';
-import { Inter } from 'next/font/google';
+import { Inter, Poppins, Raleway } from 'next/font/google';
 import Layout from '@/components/layout/Layout'
+
+const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({ 
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  variable: '--font-poppins',
+});
+const raleway = Raleway({
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  variable: '--font-raleway',
+});
 
 export const metadata: Metadata = {
   title: 'ML Portfolio',
@@ -15,16 +27,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Raleway:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+    <html lang="en" className={`${poppins.variable} ${raleway.variable}`}>
+      <body className={inter.className}>
         <Layout>{children}</Layout>
       </body>
     </html>
