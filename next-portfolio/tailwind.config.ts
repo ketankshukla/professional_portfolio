@@ -12,6 +12,7 @@ const config: Config = {
         primary: '#1a202c',
         secondary: '#2d3748',
         accent: '#4a5568',
+        background: '#f5f6fa',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],

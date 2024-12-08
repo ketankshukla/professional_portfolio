@@ -24,7 +24,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-gray-50">
+      <body>
         <Layout>{children}</Layout>
       </body>
     </html>

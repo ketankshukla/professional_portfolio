@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import MobileMenu from './MobileMenu';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +20,37 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/opensource', label: 'Open Source' },
+    { href: '/#home', label: 'Home' },
+    { href: '/#projects', label: 'Projects' },
+    { href: '/#blog', label: 'Blog' },
+    { href: '/#opensource', label: 'Open Source' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    // If we're not on the home page, first navigate to home
+    if (pathname !== '/') {
+      window.location.href = href;
+      return;
+    }
+
+    // Extract the section ID from the href
+    const sectionId = href.split('#')[1];
+    const element = document.getElementById(sectionId);
+    
+    if (element) {
+      const navHeight = 64; // height of navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   const nameArray = 'KETAN SHUKLA'.split('');
 
@@ -34,7 +61,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2 text-gray-900 no-underline">
+            <a 
+              href="/#home"
+              onClick={(e) => handleNavClick(e, '/#home')}
+              className="flex items-center gap-2 text-gray-900 no-underline"
+            >
               <Image
                 src="/images/profile/logo.png"
                 alt="Logo"
@@ -57,25 +88,26 @@ const Navbar = () => {
                   </span>
                 ))}
               </div>
-            </Link>
+            </a>
           </div>
 
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-8">
-              {navLinks.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="text-gray-900 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
+          {/* Desktop Navigation */}
+          <div className="hidden sm:flex sm:items-center sm:space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-gray-900 hover:text-blue-600 px-3 py-2 transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
-          <div className="md:hidden">
-            <button 
+          {/* Mobile menu button */}
+          <div className="sm:hidden">
+            <button
               className="text-gray-900 hover:text-blue-600 p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
@@ -106,12 +138,24 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
-      <MobileMenu 
-        isOpen={isMobileMenuOpen}
-        setIsOpen={setIsMobileMenuOpen}
-        navLinks={navLinks}
-      />
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden bg-white shadow-lg">
+          <div className="pt-2 pb-3 space-y-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="block text-gray-900 hover:text-blue-600 px-3 py-2 transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

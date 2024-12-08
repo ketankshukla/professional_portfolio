@@ -3,12 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --gradient-green: 46, 204, 113;   /* #2ecc71 */
+  --gradient-blue: 52, 152, 219;    /* #3498db */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem; /* This accounts for the fixed navbar */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  background: linear-gradient(135deg, 
+    rgba(var(--gradient-blue), 0.75) 0%,
+    rgba(var(--gradient-green), 0.75) 100%
+  ) !important;
+  min-height: 100vh;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
 }
