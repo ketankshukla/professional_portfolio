@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ketan Shukla - Blog Post">
+    <title>Blog Post - Ketan Shukla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- PrismJS CSS for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+    <!-- Custom styles for markdown -->
+    <style>
+        .brand-name {
+            display: flex;
+            gap: 5px;
+        }
+        .blog-post-container {
+            max-width: 900px;
+            margin: 100px auto 50px;
+            padding: 3rem;
+            background: white;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-md);
+        }
+        .blog-post-content {
+            line-height: 1.8;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+        .blog-post-content h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+        .blog-post-content h2 {
+            color: var(--primary-color);
+            margin: 2.5rem 0 1.5rem;
+            font-size: 2rem;
+        }
+        .blog-post-content h3 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+        }
+        .blog-post-content code:not([class*="language-"]) {
+            background: var(--bg-color);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        .blog-post-content pre[class*="language-"] {
+            background: #2d2d2d;
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            margin: 2rem 0;
+            font-size: 0.95em;
+            box-shadow: var(--shadow-sm);
+        }
+        .blog-post-content ul, .blog-post-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        .blog-post-content li {
+            margin-bottom: 0.5rem;
+        }
+        .blog-post-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            border-radius: var(--radius-sm);
+            display: block;
+            box-shadow: var(--shadow-sm);
+        }
+        .blog-post-content blockquote {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+            margin: 2rem 0;
+            color: #666;
+            font-style: italic;
+        }
+        .mermaid {
+            margin: 2rem auto;
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+        }
+        /* Dark mode for code blocks */
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #8292a2;
+        }
+        .token.punctuation {
+            color: #f8f8f2;
+        }
+        .token.property,
+        .token.tag,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #f92672;
+        }
+        .token.boolean,
+        .token.number {
+            color: #ae81ff;
+        }
+        .token.selector,
+        .token.attr-name,
+        .token.string,
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #a6e22e;
+        }
+        /* Loading animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        .loading::after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="assets/images/profile/logo.png" alt="Logo" class="logo">
+            <div class="brand-name">
+                <span style="--i:1">K</span>
+                <span style="--i:2">E</span>
+                <span style="--i:3">T</span>
+                <span style="--i:4">A</span>
+                <span style="--i:5">N</span>
+                <span style="--i:6">&nbsp;</span>
+                <span style="--i:7">S</span>
+                <span style="--i:8">H</span>
+                <span style="--i:9">U</span>
+                <span style="--i:10">K</span>
+                <span style="--i:11">L</span>
+                <span style="--i:12">A</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+            <li><a href="index.html#opensource">Open Source</a></li>
+            <li><a href="index.html#experiences">Experiences</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <article class="blog-post-container">
+            <div class="blog-post-content" id="content">
+                <div class="loading"></div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Ketan Shukla - Portfolio</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+    <script>
+        // Initialize Mermaid with custom theme
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                curve: 'basis',
+                padding: 20,
+                useMaxWidth: true
+            },
+            securityLevel: 'loose'
+        });
+
+        // Get the markdown file path from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const markdownFile = urlParams.get('post');
+
+        if (markdownFile) {
+            // Fetch and render the markdown content
+            fetch(markdownFile)
+                .then(response => response.text())
+                .then(markdown => {
+                    const md = window.markdownit({
+                        html: true,
+                        linkify: true,
+                        typographer: true,
+                        highlight: function (str, lang) {
+                            if (lang && Prism.languages[lang]) {
+                                try {
+                                    return '<pre class="line-numbers language-' + lang + '"><code>' +
+                                           Prism.highlight(str, Prism.languages[lang], lang) +
+                                           '</code></pre>';
+                                } catch (__) {}
+                            }
+                            return '<pre class="line-numbers"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+                        }
+                    });
+
+                    // Custom rendering for Mermaid diagrams
+                    const defaultFence = md.renderer.rules.fence.bind(md.renderer.rules);
+                    md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
+                        const token = tokens[idx];
+                        const code = token.content.trim();
+                        if (token.info.trim() === 'mermaid') {
+                            return `<div class="mermaid">${code}</div>`;
+                        }
+                        return defaultFence(tokens, idx, options, env, slf);
+                    };
+
+                    // Render the content
+                    const html = md.render(markdown);
+                    document.getElementById('content').innerHTML = html;
+                    
+                    // Re-initialize Mermaid and Prism
+                    mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                    Prism.highlightAll();
+                })
+                .catch(error => {
+                    console.error('Error loading markdown file:', error);
+                    document.getElementById('content').innerHTML = '<p>Error loading blog post. Please try again later.</p>';
+                });
+        } else {
+            document.getElementById('content').innerHTML = '<p>No blog post specified.</p>';
+        }
+    </script>
+</body>
+</html>

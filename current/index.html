@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ketan Shukla - ML Engineer Portfolio">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=()">
+    <title>ML Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="assets/featured_projects/css/projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .brand-name {
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="/" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 5px;">
+                <img src="assets/images/profile/logo.png" alt="Logo" class="logo">
+                <div class="brand-name">
+                    <span style="--i:1">K</span>
+                    <span style="--i:2">E</span>
+                    <span style="--i:3">T</span>
+                    <span style="--i:4">A</span>
+                    <span style="--i:5">N</span>
+                    <span style="--i:6">&nbsp;</span>
+                    <span style="--i:7">S</span>
+                    <span style="--i:8">H</span>
+                    <span style="--i:9">U</span>
+                    <span style="--i:10">K</span>
+                    <span style="--i:11">L</span>
+                    <span style="--i:12">A</span>
+                </div>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#opensource">Open Source</a></li>
+            <li><a href="#experiences">Experiences</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="banner-container">
+            <img src="assets/images/profile/python_banner.png" alt="Banner" class="banner-img">
+            <img src="assets/images/profile/profile.jpg?v=1" alt="Profile" class="profile-img">
+        </div>
+        <div class="info-container">
+            <div class="name-social">
+                <h1>Ketan Shukla</h1>
+                <div class="social-links">
+                    <a href="https://github.com/ketankshukla" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ketankshukla/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="tagline">
+                <span style="--i:1">T</span><span style="--i:2">r</span><span style="--i:3">a</span><span style="--i:4">n</span><span style="--i:5">s</span><span style="--i:6">f</span><span style="--i:7">o</span><span style="--i:8">r</span><span style="--i:9">m</span><span style="--i:10">i</span><span style="--i:11">n</span><span style="--i:12">g</span><span style="--i:13">&nbsp;</span><span style="--i:14">i</span><span style="--i:15">d</span><span style="--i:16">e</span><span style="--i:17">a</span><span style="--i:18">s</span><span style="--i:19">&nbsp;</span><span style="--i:20">i</span><span style="--i:21">n</span><span style="--i:22">t</span><span style="--i:23">o</span><span style="--i:24">&nbsp;</span><span style="--i:25">e</span><span style="--i:26">l</span><span style="--i:27">e</span><span style="--i:28">g</span><span style="--i:29">a</span><span style="--i:30">n</span><span style="--i:31">t</span><span style="--i:32">&nbsp;</span><span style="--i:33">f</span><span style="--i:34">u</span><span style="--i:35">l</span><span style="--i:36">l</span><span style="--i:37">-</span><span style="--i:38">s</span><span style="--i:39">t</span><span style="--i:40">a</span><span style="--i:41">c</span><span style="--i:42">k</span><span style="--i:43">&nbsp;</span><span style="--i:44">s</span><span style="--i:45">o</span><span style="--i:46">l</span><span style="--i:47">u</span><span style="--i:48">t</span><span style="--i:49">i</span><span style="--i:50">o</span><span style="--i:51">n</span><span style="--i:52">s</span>
+            </div>
+            <p class="contact-text"><i class="fas fa-map-marker-alt"></i>San Diego, California</p>
+            <p class="contact-text"><i class="fas fa-envelope"></i>ketankshukla@gmail.com</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="projects" class="section">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="sort-container">
+                    <select id="sort-projects" class="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+            </div>
+            <div class="project-grid" id="project-grid">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+            <div class="pagination-container">
+                <div class="projects-info">
+                    Showing <span id="showing-projects-count">0</span> of <span id="total-projects-count">0</span> projects
+                </div>
+                <button id="load-more-projects" class="load-more-btn" style="display: none;">
+                    Load More
+                </button>
+            </div>
+        </section>
+
+        <section id="blog" class="section">
+            <div class="section-header">
+                <h2>Blog</h2>
+                <div class="sort-container">
+                    <select id="sort-articles" class="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+            </div>
+            <div class="articles-grid">
+                <a href="blog-post.html?post=assets/blog_posts/2024-12-07-o_notation.md" 
+                   class="article-card" 
+                   data-date="2024-12-07">
+                    <div class="article-image">
+                        <img src="assets/images/articles/o_notation.jpg" alt=" Demystifying Big O Notation: A Journey Through Algorithmic Efficiency ">
+                    </div>
+                    <div class="article-content">
+                        <h3> Demystifying Big O Notation: A Journey Through Algorithmic Efficiency </h3>
+                        <p class="article-date">December 07, 2024</p>
+                    </div>
+                </a>
+                <a href="blog-post.html?post=assets/blog_posts/2024-12-07-trees.md" 
+                   class="article-card" 
+                   data-date="2024-12-07">
+                    <div class="article-image">
+                        <img src="assets/images/articles/trees.jpg" alt="  Trees: Unveiling the Hierarchical Data Structure ">
+                    </div>
+                    <div class="article-content">
+                        <h3>  Trees: Unveiling the Hierarchical Data Structure </h3>
+                        <p class="article-date">December 07, 2024</p>
+                    </div>
+                </a>
+                <a href="blog-post.html?post=assets/blog_posts/2024-12-07-dictionary_comprehension.md" 
+                   class="article-card" 
+                   data-date="2024-12-07">
+                    <div class="article-image">
+                        <img src="assets/images/articles/dictionary_comprehension.png" alt="  Dictionary Comprehensions: Pythonic Power ">
+                    </div>
+                    <div class="article-content">
+                        <h3>  Dictionary Comprehensions: Pythonic Power </h3>
+                        <p class="article-date">December 07, 2024</p>
+                    </div>
+                </a>
+                <a href="blog-post.html?post=assets/blog_posts/2024-12-07-doubly_linked_lists.md" 
+                   class="article-card" 
+                   data-date="2024-12-07">
+                    <div class="article-image">
+                        <img src="assets/images/articles/doubly_linked_lists.png" alt="  Doubly Linked Lists: A Deep Dive ">
+                    </div>
+                    <div class="article-content">
+                        <h3>  Doubly Linked Lists: A Deep Dive </h3>
+                        <p class="article-date">December 07, 2024</p>
+                    </div>
+                </a>
+                <a href="blog-post.html?post=assets/blog_posts/2024-12-07-markdown_to_blog_post.md" 
+                   class="article-card" 
+                   data-date="2024-12-07">
+                    <div class="article-image">
+                        <img src="assets/images/articles/markdown_to_blog_post.png" alt="Markdown Guide">
+                    </div>
+                    <div class="article-content">
+                        <h3>  Markdown to Beautiful Blog: A Complete Guide </h3>
+                        <p class="article-date">December 07, 2024</p>
+                    </div>
+                </a>
+                <a href="blog-post.html?post=assets/blog_posts/2024-12-07-linked-lists.md" 
+                   class="article-card" 
+                   data-date="2024-12-07">
+                    <div class="article-image">
+                        <img src="assets/images/articles/linked_lists.png" alt="Linked Lists Guide">
+                    </div>
+                    <div class="article-content">
+                        <h3>  Linked Lists: A Comprehensive Python Guide </h3>
+                        <p class="article-date">December 07, 2024</p>
+                    </div>
+                </a>
+            </div>
+            <div class="pagination-container">
+                <div class="articles-info">
+                    Showing <span id="showing-count">2</span> of <span id="total-count">2</span> articles
+                </div>
+                <button id="load-more" class="load-more-btn" style="display: none;">
+                    Load More Articles
+                </button>
+                <div class="pagination">
+                    <button class="page-btn" data-page="prev" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="page-numbers">
+                        <span class="current-page">1</span> of <span class="total-pages">1</span>
+                    </div>
+                    <button class="page-btn" data-page="next" disabled>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="opensource" class="section">
+            <div class="section-header">
+                <h2>Open Source Contributions</h2>
+            </div>
+            <div class="opensource-grid">
+                <a href="https://github.com/numpy/numpy/pull/27602" 
+                   class="opensource-card" 
+                   data-date="2024-10-21"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <div class="opensource-image">
+                        <img src="assets/Open Source/np_floating_point.jpg" alt="NumPy Contribution">
+                        <div class="project-badge">
+                            <i class="fab fa-github"></i>
+                            NumPy
+                        </div>
+                    </div>
+                    <div class="opensource-content">
+                        <h3>Update documentation for floating-point precision and determinant calculations</h3>
+                        <p class="contribution-date">October 21, 2024</p>
+                        <p class="contribution-description">
+                            I contributed to the NumPy library by enhancing its documentation on floating-point precision. 
+                            This involved adding a new section that explains the nuances of floating-point arithmetic, 
+                            including practical examples to help new users understand the inherent inaccuracies in numerical computations. 
+                            This contribution aims to improve user experience and provide clarity on an essential aspect of numerical libraries.
+                        </p>
+                        <div class="contribution-link">
+                            <span>View Pull Request</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="pagination-container">
+                <div class="contributions-info">
+                    Showing <span id="showing-count-os">1</span> of <span id="total-count-os">1</span> contributions
+                </div>
+                <div class="pagination">
+                    <button class="page-btn" data-page="prev" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="page-numbers">
+                        <span class="current-page">1</span> of <span class="total-pages">1</span>
+                    </div>
+                    <button class="page-btn" data-page="next" disabled>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiences" class="section">
+            <div class="section-header">
+                <h2>Experiences</h2>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-track">
+                    <div class="timeline-line"></div>
+                    <!-- Current Position -->
+                    <div class="timeline-item active">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="experience-card">
+                                <div class="company-logo">
+                                    <img src="assets/Experiences/chegg.png" alt="Chegg Logo">
+                                </div>
+                                <div class="experience-details">
+                                    <h3>Chegg Expert (Advanced Physics)</h3>
+                                    <div class="company-info">
+                                        <span class="company-name">Chegg India</span>
+                                        <span class="job-type">Freelance</span>
+                                    </div>
+                                    <div class="duration">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>Apr 2024 - Present</span>
+                                    </div>
+                                    <div class="location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>India</span>
+                                    </div>
+                                    <a href="https://drive.google.com/file/d/1H8sQ3DFqXlb49ujls3HfP12bSKA7iFMb/view?usp=sharing" 
+                                       class="certificate-link" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer">
+                                        <i class="fas fa-certificate"></i>
+                                        <span>View Certificate</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Past Position -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="experience-card">
+                                <div class="company-logo">
+                                    <img src="assets/Experiences/PHN.png" alt="PHN Technology Logo">
+                                </div>
+                                <div class="experience-details">
+                                    <h3>Data Science Intern</h3>
+                                    <div class="company-info">
+                                        <span class="company-name">PHN Technology Pvt Ltd</span>
+                                        <span class="job-type">Remote</span>
+                                    </div>
+                                    <div class="duration">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>Jun 2023</span>
+                                    </div>
+                                    <div class="location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Pune</span>
+                                    </div>
+                                    <a href="https://drive.google.com/file/d/1gOAUXn-vgucTRIQl02n9lM7H4-HzCFcH/view?usp=sharing" 
+                                       class="certificate-link" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer">
+                                        <i class="fas fa-certificate"></i>
+                                        <span>View Certificate</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Ketan Shukla - Portfolio</p>
+        </div>
+    </footer>
+
+    <script defer src="js/main.js"></script>
+    <script defer src="js/mobile.js"></script>
+    <script defer src="assets/featured_projects/js/projects.js"></script>
+</body>
+</html>
