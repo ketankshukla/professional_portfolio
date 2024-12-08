@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { getPostBySlug, getAllPosts } from '@/utils/blog';
 import { notFound } from 'next/navigation';
+import BlogContent from '@/components/blog/BlogContent';
 
 interface BlogPostPageProps {
   params: {
@@ -87,10 +88,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </header>
 
-          <div 
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <BlogContent content={post.content} />
         </div>
       </article>
     );
