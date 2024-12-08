@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import './globals.css';
+import '@/styles/prism-theme.css';
+import { Inter } from 'next/font/google';
 import Layout from '@/components/layout/Layout'
 
 export const metadata: Metadata = {
