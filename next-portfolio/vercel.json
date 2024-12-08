@@ -9,6 +9,5 @@
   "github": {
     "silent": true,
     "autoAlias": true
-  },
-  "rootDirectory": "next-portfolio"
+  }
 }
